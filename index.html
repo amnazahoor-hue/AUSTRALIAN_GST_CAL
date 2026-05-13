@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="AusGSTPro — Australia's most accurate GST calculator. Add or remove 10% GST instantly with ATO-compliant precision. Free, fast, mobile-ready." />
+    <meta name="keywords" content="GST calculator Australia, ATO GST, add GST, remove GST, Australian tax calculator, 10% GST" />
+    <meta name="author" content="AusGSTPro" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ausgstpro.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="AusGSTPro | Australian GST Calculator" />
+    <meta property="og:description" content="Calculate GST instantly with ATO-compliant precision. Free Australian GST calculator." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ausgstpro.com/" />
+    <meta property="og:site_name" content="AusGSTPro" />
+
+    <title>AusGSTPro | Australia's #1 GST Calculator — Add & Remove GST Instantly</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Organization Schema (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "AusGSTPro",
+      "url": "https://ausgstpro.com/",
+      "logo": "https://ausgstpro.com/logo.png",
+      "description": "Australia's most accurate GST calculator. Add or remove 10% GST instantly with ATO-compliant precision.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "AU"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "email": "support@ausgstpro.com",
+        "availableLanguage": ["English"]
+      },
+      "sameAs": []
+    }
+    </script>
+
+    <!-- FAQ Schema (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I calculate 10% GST?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To add 10% GST to an amount, multiply it by 0.1 to get the GST amount, or multiply by 1.1 to get the total amount including GST."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I remove GST from a price?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To find the GST component in a GST-inclusive price, divide the price by 11. To find the price without GST, divide the total price by 1.1."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the current GST rate in Australia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The standard GST rate in Australia is 10%. It has remained at this level since its introduction in July 2000."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are any items GST-free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, many essential items are GST-free, including most basic foods, some health services, education courses, and some medical supplies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When do I need to register for GST?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You must register for GST if your business has a GST turnover of $75,000 or more ($150,000 for non-profits), or if you provide taxi or limousine travel as part of your business."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the AusGSTPro calculator free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, AusGSTPro is 100% free with no subscription, no hidden costs, and no account required. It is a pure utility for the Australian community."
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+
+  <body>
+    <!-- Skip link for accessibility -->
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <header class="site-header" role="banner">
+  <div class="container">
+    <div class="header-shell">
+      <!-- Logo - LEFT -->
+      <a href="index.html" class="logo" aria-label="AusGSTPro Home">
+        <span class="logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path d="M8 2h8M8 6h8M8 10h8M8 14h8M8 18h8M5 2h0M5 6h0M5 10h0M5 14h0M5 18h0M19 2h0M19 6h0M19 10h0M19 14h0M19 18h0" stroke="currentColor" stroke-width="2" fill="none"/>
+          </svg>
+        </span>
+        <span class="logo-text"><span>AusGST</span><span class="logo-pro">Pro</span></span>
+      </a>
+
+      <!-- Navigation - RIGHT -->
+      <nav class="main-nav" id="mainNav" aria-label="Primary">
+        <a href="index.html" class="nav-link active" aria-current="page">Home</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#how-it-works" class="nav-link">How it works</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="pages/contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- CTA Button - RIGHT -->
+      <a href="#calculator" class="btn btn-header">Calculate Now</a>
+
+      <!-- Mobile Hamburger - RIGHT (hidden on desktop) -->
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 6h18M3 12h18M3 18h18" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero" id="hero" aria-labelledby="heroHeading">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <span class="hero-badge">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 2.7 5.5 6 0.9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6L3.3 8.4l6-0.9z" /></svg>
+              AUSTRALIA'S #1 GST TOOL
+            </span>
+            <h1 id="heroHeading">
+              Australia's Most<br />
+              Accurate <span class="grad-blue">GST</span><br />
+              <span class="grad-purple">Calculator</span>
+            </h1>
+            <p class="hero-sub">Built for the modern Australian economy — fast, precise, and ATO compliant.</p>
+            <p class="hero-desc">Calculate GST instantly with advanced precision and zero confusion. Whether you're a business owner, tradie, or contractor, AusGSTPro gives you the right answer every time.</p>
+            <div class="hero-actions">
+              <a href="#calculator" class="btn btn-primary" id="heroCta">
+                Calculate GST Now
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
+              </a>
+              <a href="#how-it-works" class="btn btn-secondary">Learn the Formula</a>
+            </div>
+            <div class="stats-row" role="list">
+              <div class="stat" role="listitem"><strong>100%</strong><span>ATO COMPLIANT</span></div>
+              <div class="stat" role="listitem"><strong>0.0s</strong><span>INSTANT RESULTS</span></div>
+              <div class="stat" role="listitem"><strong>24/7</strong><span>AVAILABLE</span></div>
+            </div>
+          </div>
+
+          <!-- TOOL / CALCULATOR -->
+          <aside class="calc-card" id="calculator" aria-labelledby="calcHeading">
+            <div class="calc-head">
+              <h2 id="calcHeading"><span aria-hidden="true">#</span> GST Calculator</h2>
+              <button id="resetBtn" class="icon-btn" aria-label="Reset calculator" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36M21 3v6h-6" /></svg>
+              </button>
+            </div>
+
+            <div class="mode-toggle" role="tablist" aria-label="Calculation mode">
+              <button id="addModeBtn" class="mode-btn active" type="button" role="tab" aria-selected="true">+ Add GST</button>
+              <button id="removeModeBtn" class="mode-btn" type="button" role="tab" aria-selected="false">- Remove GST</button>
+            </div>
+
+            <form id="calcForm" novalidate>
+              <label class="field" for="amountInput">
+                <span>AMOUNT ($)</span>
+                <div class="input-wrap">
+                  <input id="amountInput" name="amount" inputmode="decimal" autocomplete="off" value="1000" placeholder="1000" aria-label="Amount in AUD" aria-describedby="amountError" required />
+                  <small>AUD</small>
+                </div>
+                <span class="field-error" id="amountError" role="alert"></span>
+              </label>
+
+              <label class="field" for="rateInput">
+                <span>GST RATE (%)</span>
+                <div class="input-wrap">
+                  <input id="rateInput" name="rate" inputmode="decimal" autocomplete="off" value="10" placeholder="10" aria-label="GST rate in percent" aria-describedby="rateError" required />
+                  <small>%</small>
+                </div>
+                <span class="field-error" id="rateError" role="alert"></span>
+              </label>
+
+              <button type="submit" class="btn btn-calc" id="calcSubmit">
+                <span class="btn-label">Calculate</span>
+                <span class="btn-spinner" aria-hidden="true"></span>
+              </button>
+            </form>
+
+            <div class="result-row" aria-live="polite">
+              <article class="result-card">
+                <span>GST AMOUNT</span>
+                <div class="result-value-wrap">
+                  <strong id="gstAmount">$100.00</strong>
+                  <button id="copyBtn" class="icon-btn small" aria-label="Copy GST amount" type="button">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9h11v11H9zM4 4h11v11H4z" /></svg>
+                  </button>
+                </div>
+              </article>
+              <article class="result-card">
+                <span>BASE AMOUNT</span>
+                <strong id="baseAmount">$1,000.00</strong>
+              </article>
+            </div>
+
+            <article class="total-card">
+              <span>TOTAL AMOUNT</span>
+              <strong id="totalAmount">$1,100.00</strong>
+            </article>
+
+            <div id="copyToast" class="copy-toast" role="status" aria-live="polite">Copied!</div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS — 4 steps -->
+      <section class="how-steps" id="how-it-works" aria-labelledby="howHeading">
+        <div class="container">
+          <div class="section-head center">
+            <h2 id="howHeading">How It <span class="grad-blue">Works</span></h2>
+            <p>Get accurate GST results in four simple steps. No tax knowledge required.</p>
+          </div>
+          <ol class="steps-grid">
+            <li class="step-card reveal">
+              <div class="step-number" aria-hidden="true">01</div>
+              <span class="step-icon yellow"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+              <h3>Choose Mode</h3>
+              <p>Select <strong>Add GST</strong> if your amount excludes GST, or <strong>Remove GST</strong> if it already includes it.</p>
+            </li>
+            <li class="step-card reveal">
+              <div class="step-number" aria-hidden="true">02</div>
+              <span class="step-icon blue"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+              <h3>Enter Amount</h3>
+              <p>Type the dollar amount you want to calculate. Validation prevents empty or invalid inputs.</p>
+            </li>
+            <li class="step-card reveal">
+              <div class="step-number" aria-hidden="true">03</div>
+              <span class="step-icon purple"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 14 4-4 4 4 6-6"/></svg></span>
+              <h3>Set GST Rate</h3>
+              <p>Default is 10% — the Australian standard. You can adjust it for special cases or international scenarios.</p>
+            </li>
+            <li class="step-card reveal">
+              <div class="step-number" aria-hidden="true">04</div>
+              <span class="step-icon green"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <h3>Get Results</h3>
+              <p>See the GST amount, base price, and total — instantly. Copy any value with one click.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- FEATURES — 3 column equal-height grid -->
+      <section class="features" id="features" aria-labelledby="featHeading">
+        <div class="container">
+          <div class="section-head center">
+            <h2 id="featHeading">Built for <span class="grad-blue">Speed</span> &amp; <span class="grad-purple">Precision</span></h2>
+            <p>Engineered for daily tax calculations with the polish Australian businesses expect.</p>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card reveal">
+              <span class="feature-icon yellow"><svg viewBox="0 0 24 24"><path d="m13 2-8 12h7l-1 8 8-12h-7z"/></svg></span>
+              <h3>Instant Calculation</h3>
+              <p>Real-time results as you type — no waiting, no loading screens, no friction.</p>
+            </article>
+            <article class="feature-card reveal">
+              <span class="feature-icon green"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 5 3 8 7 9 4-1 7-4 7-9V6zM9 12l2 2 4-4"/></svg></span>
+              <h3>Accurate Results</h3>
+              <p>Mathematically precise calculations following Australian Taxation Office guidelines exactly.</p>
+            </article>
+            <article class="feature-card reveal">
+              <span class="feature-icon blue"><svg viewBox="0 0 24 24"><path d="M3 3h8v8H3zM13 3h8v8h-8zM3 13h8v8H3zM13 13h8v8h-8z"/></svg></span>
+              <h3>Business Ready</h3>
+              <p>Designed for Australian businesses, contractors, sole traders, and tradies of every size.</p>
+            </article>
+            <article class="feature-card reveal">
+              <span class="feature-icon purple"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M12 18h0"/></svg></span>
+              <h3>Mobile Optimized</h3>
+              <p>PWA-ready design that works perfectly on any device or screen size — phone, tablet, desktop.</p>
+            </article>
+            <article class="feature-card reveal">
+              <span class="feature-icon red"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="m22 3-10 10"/></svg></span>
+              <h3>Zero Confusion</h3>
+              <p>Clear Add/Remove GST modes eliminate calculation guesswork and second-guessing.</p>
+            </article>
+            <article class="feature-card reveal">
+              <span class="feature-icon cyan"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <h3>100% Free</h3>
+              <p>No subscription, no hidden costs, no account required. A pure utility built for the community.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- DETAIL / FORMULA SECTION -->
+      <section class="how-it-works" id="formula" aria-labelledby="formulaHeading">
+        <div class="container split-grid">
+          <div>
+            <div class="section-icon-title">
+              <span class="title-icon blue"><svg viewBox="0 0 24 24"><path d="M4 5h7a4 4 0 0 1 4 4v10H8a4 4 0 0 0-4 4zM20 5h-7a4 4 0 0 0-4 4v10h7a4 4 0 0 1 4 4z"/></svg></span>
+              <h2 id="formulaHeading">Understanding GST in Australia</h2>
+            </div>
+            <p class="lead">The Goods and Services Tax (GST) is a broad-based 10% tax on most goods, services, and items sold or consumed in Australia. Introduced in July 2000, it is a fundamental part of the country's taxation system.</p>
+            <article class="formula-card">
+              <h3><span class="title-icon purple"><svg viewBox="0 0 24 24"><path d="M8 2h8M8 6h8M8 10h8M8 14h8M8 18h8"/></svg></span>The Formula</h3>
+              <div>
+                <span class="tiny-label">TO ADD GST (10%):</span>
+                <p class="code blue-code">Total = Amount × 1.1</p>
+              </div>
+              <hr />
+              <div>
+                <span class="tiny-label">TO REMOVE GST (INCLUSIVE):</span>
+                <p class="code purple-code">Base = Amount ÷ 1.1</p>
+                <p class="meta">GST Part = Amount ÷ 11</p>
+              </div>
+            </article>
+            <h3 class="subhead">Who Needs to Register for GST?</h3>
+            <p class="lead">You must register for GST if your business has a GST turnover (gross income minus GST) of $75,000 or more ($150,000 or more for non-profit organisations). Registration is also mandatory if you provide taxi or limousine travel for a fare as part of your business activity.</p>
+          </div>
+
+          <!-- FAQ — Accordion -->
+          <div id="faq" aria-labelledby="faqHeading">
+            <div class="section-icon-title">
+              <span class="title-icon purple"><svg viewBox="0 0 24 24"><path d="M12 17h0M9 9a3 3 0 1 1 6 0c0 2-3 2-3 5M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0"/></svg></span>
+              <h2 id="faqHeading">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-list">
+              <article class="faq-card reveal">
+                <button class="faq-toggle" aria-expanded="false" aria-controls="faq1">
+                  <span class="faq-q"><span class="faq-mark">Q.</span> How do I calculate 10% GST?</span>
+                  <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+                </button>
+                <div class="faq-panel" id="faq1" hidden>
+                  <p>To add 10% GST to an amount, multiply it by 0.1 to get the GST amount, or multiply by 1.1 to get the total amount including GST.</p>
+                </div>
+              </article>
+
+              <article class="faq-card reveal">
+                <button class="faq-toggle" aria-expanded="false" aria-controls="faq2">
+                  <span class="faq-q"><span class="faq-mark">Q.</span> How do I remove GST from a price?</span>
+                  <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+                </button>
+                <div class="faq-panel" id="faq2" hidden>
+                  <p>To find the GST component in a GST-inclusive price, divide the price by 11. To find the price without GST, divide the total price by 1.1.</p>
+                </div>
+              </article>
+
+              <article class="faq-card reveal">
+                <button class="faq-toggle" aria-expanded="false" aria-controls="faq3">
+                  <span class="faq-q"><span class="faq-mark">Q.</span> What is the current GST rate in Australia?</span>
+                  <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+                </button>
+                <div class="faq-panel" id="faq3" hidden>
+                  <p>The standard GST rate in Australia is 10%. It has remained at this level since its introduction in July 2000.</p>
+                </div>
+              </article>
+
+              <article class="faq-card reveal">
+                <button class="faq-toggle" aria-expanded="false" aria-controls="faq4">
+                  <span class="faq-q"><span class="faq-mark">Q.</span> Are any items GST-free?</span>
+                  <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+                </button>
+                <div class="faq-panel" id="faq4" hidden>
+                  <p>Yes, many essential items are GST-free, including most basic foods, some health services, education courses, and some medical supplies.</p>
+                </div>
+              </article>
+
+              <article class="faq-card reveal">
+                <button class="faq-toggle" aria-expanded="false" aria-controls="faq5">
+                  <span class="faq-q"><span class="faq-mark">Q.</span> When do I need to register for GST?</span>
+                  <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+                </button>
+                <div class="faq-panel" id="faq5" hidden>
+                  <p>You must register for GST if your business has a GST turnover of $75,000 or more ($150,000 for non-profits), or if you provide taxi or limousine travel as part of your business.</p>
+                </div>
+              </article>
+
+              <article class="faq-card reveal">
+                <button class="faq-toggle" aria-expanded="false" aria-controls="faq6">
+                  <span class="faq-q"><span class="faq-mark">Q.</span> Is the AusGSTPro calculator free to use?</span>
+                  <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span>
+                </button>
+                <div class="faq-panel" id="faq6" hidden>
+                  <p>Yes, AusGSTPro is 100% free with no subscription, no hidden costs, and no account required. It is a pure utility for the Australian community.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GST vs VAT + CTA -->
+      <section class="vat-cta" aria-labelledby="vatHeading">
+        <div class="container split-grid">
+          <div>
+            <h2 id="vatHeading">GST vs VAT</h2>
+            <p class="lead">While Australia uses the term GST, many other countries call it Value Added Tax (VAT). Conceptually they are almost identical — a consumption tax levied at each stage of the supply chain.</p>
+          </div>
+          <article class="cta-card">
+            <span class="cta-ornament" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 10v6M12 7h0"/></svg>
+            </span>
+            <h3>Need a Custom Quote?</h3>
+            <p>For complex tax scenarios, always consult with a certified Australian accountant.</p>
+            <a href="pages/contact.html" class="cta-btn">Contact Support</a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Column 1: Logo, Description & Social Media -->
+      <div>
+        <a href="index.html" class="logo">
+          <span class="logo-icon">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+              <path d="M8 2h8M8 6h8M8 10h8M8 14h8M8 18h8M5 2h0M5 6h0M5 10h0M5 14h0M5 18h0M19 2h0M19 6h0M19 10h0M19 14h0M19 18h0" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+          </span>
+          <span class="logo-text"><span>AusGST</span><span class="logo-pro">Pro</span></span>
+        </a>
+        <p class="footer-note">Leading the way in digital tax tools.<br />High-precision GST calculations for Australian businesses and individuals.</p>
+        
+        <!-- Social Media with Official SVG Logos -->
+        <div class="social-links">
+          <!-- Twitter/X -->
+          <a href="https://twitter.com/ausgstpro" class="social-icon" data-social="twitter" data-tooltip="Twitter" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Twitter">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          
+          <!-- LinkedIn -->
+          <a href="https://linkedin.com/company/ausgstpro" class="social-icon" data-social="linkedin" data-tooltip="LinkedIn" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451c.979 0 1.771-.773 1.771-1.729V1.729C24 .774 23.203 0 22.225 0z"/>
+            </svg>
+          </a>
+          
+          <!-- Facebook -->
+          <a href="https://facebook.com/ausgstpro" class="social-icon" data-social="facebook" data-tooltip="Facebook" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          
+          <!-- Instagram -->
+          <a href="https://instagram.com/ausgstpro" class="social-icon" data-social="instagram" data-tooltip="Instagram" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+          </a>
+          
+          <!-- YouTube -->
+          <a href="https://youtube.com/c/ausgstpro" class="social-icon" data-social="youtube" data-tooltip="YouTube" target="_blank" rel="noopener noreferrer" aria-label="Subscribe on YouTube">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.376.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.376-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Column 2: Resources -->
+      <div>
+        <h3 class="footer-head">Resources</h3>
+        <a href="#how-it-works">GST Guide</a>
+        <a href="#formula">The Formula</a>
+        <a href="#faq">Common Questions</a>
+        <a href="#calculator">GST Calculator</a>
+      </div>
+      
+      <!-- Column 3: Legal Links -->
+      <div>
+        <h3 class="footer-head">Legal</h3>
+        <a href="pages/privacy.html">Privacy Policy</a>
+        <a href="pages/terms.html">Terms &amp; Conditions</a>
+        <a href="pages/disclaimer.html">Disclaimer</a>
+        <a href="pages/affiliate-disclosure.html">Affiliate Disclosure</a>
+      </div>
+      
+      <!-- Column 4: Contact -->
+      <div>
+        <h3 class="footer-head">Contact</h3>
+        <a href="pages/contact.html">Contact Us</a>
+        <a href="mailto:support@ausgstpro.com">support@ausgstpro.com</a>
+        <p class="response-note">Response within 24–48 hours</p>
+      </div>
+    </div>
+    
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>© <span id="copyYear">2026</span> AusGSTPro. All rights reserved.</p>
+      <p>
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 7h16v13H4zM9 7V4h6v3"/>
+        </svg>
+        PROFESSIONAL FINANCIAL TOOL
+      </p>
+    </div>
+  </div>
+</footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
