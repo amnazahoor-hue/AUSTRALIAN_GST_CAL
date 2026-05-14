@@ -1,20 +1,9 @@
-/* ═══════════════════════════════════════
-   AusGSTPro — Site Logic
-   • Calculator with validation + loading state
-   • FAQ accordion (single open at a time)
-   • Mobile menu (auto-close on link click)
-   • Smooth scroll
-   • Dynamic copyright year
-   • Scroll reveal animations
-═══════════════════════════════════════ */
+
 
 (() => {
   "use strict";
 
-  /* ─────────────────────────────────────
-     ELEMENT REFS — guarded so legal pages
-     (without calculator) don't error out
-  ───────────────────────────────────── */
+  
   const $ = (id) => document.getElementById(id);
 
   const amountInput  = $("amountInput");
@@ -36,16 +25,12 @@
   const siteHeader   = document.querySelector(".site-header");
   const copyYearEl   = $("copyYear");
 
-  /* ─────────────────────────────────────
-     DYNAMIC COPYRIGHT YEAR
-  ───────────────────────────────────── */
+  
   if (copyYearEl) {
     copyYearEl.textContent = new Date().getFullYear();
   }
 
-  /* ─────────────────────────────────────
-     SMOOTH SCROLL with header offset
-  ───────────────────────────────────── */
+  
   const smoothScrollTo = (target) => {
     const headerHeight = siteHeader ? siteHeader.offsetHeight + 16 : 96;
     const targetTop = target.getBoundingClientRect().top + window.scrollY - headerHeight;
@@ -61,7 +46,6 @@
       event.preventDefault();
       smoothScrollTo(target);
 
-      // Auto-close mobile nav
       if (mainNav && mainNav.classList.contains("open")) {
         mainNav.classList.remove("open");
         if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
@@ -69,9 +53,7 @@
     });
   });
 
-  /* ─────────────────────────────────────
-     MOBILE MENU TOGGLE + close on link click
-  ───────────────────────────────────── */
+  
   if (menuToggle && mainNav) {
     menuToggle.addEventListener("click", () => {
       const expanded = menuToggle.getAttribute("aria-expanded") === "true";
@@ -79,7 +61,6 @@
       mainNav.classList.toggle("open");
     });
 
-    // Close menu when ANY nav link is clicked (including non-anchor ones)
     mainNav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         mainNav.classList.remove("open");
@@ -87,7 +68,6 @@
       });
     });
 
-    // Close on outside click
     document.addEventListener("click", (e) => {
       if (!mainNav.classList.contains("open")) return;
       if (mainNav.contains(e.target) || menuToggle.contains(e.target)) return;
@@ -95,7 +75,6 @@
       menuToggle.setAttribute("aria-expanded", "false");
     });
 
-    // Close on Escape
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && mainNav.classList.contains("open")) {
         mainNav.classList.remove("open");
@@ -104,9 +83,7 @@
     });
   }
 
-  /* ─────────────────────────────────────
-     FAQ ACCORDION — only one open at a time
-  ───────────────────────────────────── */
+  
   const faqToggles = document.querySelectorAll(".faq-toggle");
   faqToggles.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -114,7 +91,6 @@
       const panel = document.getElementById(btn.getAttribute("aria-controls"));
       const isOpen = card.classList.contains("open");
 
-      // Close all
       document.querySelectorAll(".faq-card.open").forEach((openCard) => {
         openCard.classList.remove("open");
         const openBtn = openCard.querySelector(".faq-toggle");
@@ -123,7 +99,6 @@
         if (openPanel) openPanel.hidden = true;
       });
 
-      // Open this one if it wasn't already
       if (!isOpen) {
         card.classList.add("open");
         btn.setAttribute("aria-expanded", "true");
@@ -132,9 +107,7 @@
     });
   });
 
-  /* ─────────────────────────────────────
-     SCROLL REVEAL
-  ───────────────────────────────────── */
+  
   const revealItems = document.querySelectorAll(".reveal");
   if (revealItems.length && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver(
@@ -154,13 +127,11 @@
       observer.observe(item);
     });
   } else {
-    // Fallback — just show them
+
     revealItems.forEach((i) => i.classList.add("in-view"));
   }
 
-  /* ─────────────────────────────────────
-     CALCULATOR — only runs if elements exist
-  ───────────────────────────────────── */
+  
   if (!amountInput || !rateInput) return;
 
   const formatCurrency = new Intl.NumberFormat("en-AU", {
@@ -174,7 +145,7 @@
     rate: 10
   };
 
-  /* INPUT SANITIZATION */
+  
   const sanitizeNumericInput = (value) => {
     const sanitized = String(value)
       .replace(/[^\d.]/g, "")
@@ -197,14 +168,13 @@
     return Math.round(clamped * 100) / 100;
   };
 
-  /* VALIDATION — returns true if all valid */
+  
   const validate = ({ silent = false } = {}) => {
     let valid = true;
 
     const amountRaw = amountInput.value.trim();
     const rateRaw   = rateInput.value.trim();
 
-    // Amount
     if (amountRaw === "") {
       if (!silent) showError(amountInput, amountError, "Amount is required.");
       valid = false;
@@ -215,7 +185,6 @@
       clearError(amountInput, amountError);
     }
 
-    // Rate
     if (rateRaw === "") {
       if (!silent) showError(rateInput, rateError, "GST rate is required.");
       valid = false;
@@ -241,7 +210,7 @@
     if (errEl) errEl.textContent = "";
   };
 
-  /* CALCULATE */
+  
   const calculate = () => {
     const amount = Math.max(0, state.amount);
     const rate   = Math.max(0, Math.min(100, state.rate));
@@ -262,7 +231,7 @@
     totalAmountEl.textContent = formatCurrency.format(totalAmount);
   };
 
-  /* LIVE UPDATE (silent — no error nag while typing) */
+  
   const liveUpdate = () => {
     const aClean = limitToTwoDecimals(sanitizeNumericInput(amountInput.value));
     const rClean = limitToTwoDecimals(sanitizeNumericInput(rateInput.value));
@@ -274,14 +243,13 @@
     if (a !== null) state.amount = a;
     if (r !== null) state.rate   = r;
 
-    // Clear errors as user types
     if (aClean !== "") clearError(amountInput, amountError);
     if (rClean !== "") clearError(rateInput, rateError);
 
     calculate();
   };
 
-  /* MODE SWITCH */
+  
   const setMode = (nextMode) => {
     state.mode = nextMode;
     addModeBtn.classList.toggle("active", nextMode === "add");
@@ -291,38 +259,36 @@
     calculate();
   };
 
-  /* EVENT WIRING */
+  
   addModeBtn.addEventListener("click", () => setMode("add"));
   removeModeBtn.addEventListener("click", () => setMode("remove"));
   amountInput.addEventListener("input", liveUpdate);
   rateInput.addEventListener("input", liveUpdate);
 
-  /* FORM SUBMIT — validation gate + loading state */
+  
   if (calcForm && calcSubmit) {
     calcForm.addEventListener("submit", (e) => {
       e.preventDefault();
       if (!validate()) return;
 
-      // Loading state
       calcSubmit.classList.add("loading");
       calcSubmit.disabled = true;
       const labelEl = calcSubmit.querySelector(".btn-label");
       const originalLabel = labelEl ? labelEl.textContent : "";
       if (labelEl) labelEl.textContent = "Calculating…";
 
-      // Brief delay so user perceives the action
       setTimeout(() => {
         calculate();
         calcSubmit.classList.remove("loading");
         calcSubmit.disabled = false;
         if (labelEl) labelEl.textContent = originalLabel;
-        // Focus result for screen readers
+
         if (totalAmountEl) totalAmountEl.setAttribute("tabindex", "-1");
       }, 450);
     });
   }
 
-  /* RESET */
+  
   if (resetBtn) {
     resetBtn.addEventListener("click", () => {
       state.mode   = "add";
@@ -336,7 +302,7 @@
     });
   }
 
-  /* COPY */
+  
   if (copyBtn) {
     copyBtn.addEventListener("click", async () => {
       try {
@@ -351,12 +317,9 @@
     });
   }
 
-  // Initial render
   calculate();
 
-  /* ─────────────────────────────────────
-     CONTACT FORM (only on contact.html)
-  ───────────────────────────────────── */
+  
   const contactForm = $("contactForm");
   if (contactForm) {
     const successEl = $("contactSuccess");
