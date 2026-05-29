@@ -12,7 +12,6 @@ export default function DisclaimerPage() {
         <div className="container">
           <h1>Disclaimer</h1>
           <p>Please read this disclaimer carefully before using AusGSTPro. By accessing or using our website and calculator, you agree to these terms.</p>
-          <p className="page-meta">Last updated: May 2026</p>
         </div>
       </section>
       <section className="legal-body">

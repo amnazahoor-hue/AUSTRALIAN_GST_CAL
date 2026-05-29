@@ -12,7 +12,6 @@ export default function PrivacyPage() {
         <div className="container">
           <h1>Privacy Policy</h1>
           <p>Your privacy matters. This policy explains what information we collect, how we use it, and the choices you have when using AusGSTPro.</p>
-          <p className="page-meta">Last updated: May 2026</p>
         </div>
       </section>
       <section className="legal-body">

@@ -12,7 +12,6 @@ export default function AboutPage() {
         <div className="container">
           <h1>About Us</h1>
           <p>AusGSTPro is built to make GST calculations fast, clear, and dependable.</p>
-          <p className="page-meta">Last updated: May 2026</p>
         </div>
       </section>
       <section className="legal-body">
