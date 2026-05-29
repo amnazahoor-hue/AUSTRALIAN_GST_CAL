@@ -12,7 +12,6 @@ export default function TermsPage() {
         <div className="container">
           <h1>Terms &amp; Conditions</h1>
           <p>These terms govern your use of AusGSTPro. By accessing or using the website and calculator, you agree to be bound by them in full.</p>
-          <p className="page-meta">Last updated: May 2026</p>
         </div>
       </section>
       <section className="legal-body">

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "./BrandLogo";
 
 function SocialLinks() {
   return (
@@ -28,9 +29,8 @@ export function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div>
-            <Link href="/" className="logo">
-              <span className="logo-icon"><svg viewBox="0 0 24 24"><path d="M8 2h8M8 6h8M8 10h8M8 14h8M8 18h8"/></svg></span>
-              <span className="logo-text"><span>AusGST</span><span className="logo-pro">Pro</span></span>
+            <Link href="/" className="logo" aria-label="AusGSTPro Home">
+              <BrandLogo />
             </Link>
             <p className="footer-note">Leading the way in digital tax tools. High-precision GST calculations for Australian businesses and individuals.</p>
             <SocialLinks />
@@ -54,12 +54,10 @@ export function Footer() {
             <h3 className="footer-head">Contact</h3>
             <Link href="/contact">Contact Us</Link>
             <a href="mailto:support@ausgstpro.com">support@ausgstpro.com</a>
-            <p className="response-note">Response within 24–48 hours</p>
           </div>
         </div>
         <div className="footer-bottom">
           <p>© <span>{new Date().getFullYear()}</span> AusGSTPro. All rights reserved.</p>
-          <p><svg viewBox="0 0 24 24"><path d="M4 7h16v13H4zM9 7V4h6v3"/></svg>PROFESSIONAL FINANCIAL TOOL</p>
         </div>
       </div>
     </footer>

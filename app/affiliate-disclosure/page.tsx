@@ -12,7 +12,6 @@ export default function AffiliateDisclosurePage() {
         <div className="container">
           <h1>Affiliate Disclosure</h1>
           <p>We may receive a commission through certain partner links at no extra cost to you.</p>
-          <p className="page-meta">Last updated: May 2026</p>
         </div>
       </section>
       <section className="legal-body">

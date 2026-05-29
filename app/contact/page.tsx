@@ -14,7 +14,6 @@ export default function ContactPage() {
         <div className="container">
           <h1>Contact Us</h1>
           <p>We&apos;d love to hear from you. Whether it&apos;s a question about GST, a feature request, or feedback on the calculator, our team is here to help.</p>
-          <p className="page-meta">Last updated: May 2026</p>
         </div>
       </section>
       <section className="legal-body">
